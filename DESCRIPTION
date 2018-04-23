@@ -1,9 +1,10 @@
 Package: grex
 Type: Package
 Title: Gene ID Mapping for Genotype-Tissue Expression (GTEx) Data
-Version: 1.7
+Version: 1.8
 Authors@R: c(
-    person("Nan", "Xiao", email = "me@nanx.me", role = c("aut", "cre")),
+    person("Nan", "Xiao", email = "me@nanx.me", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-0250-5673")),
     person("Gao", "Wang", email = "gaow@uchicago.edu", role = "aut"),
     person("Lei", "Sun", email = "sunl@uchicago.edu", role = "aut")
     )
@@ -21,9 +22,9 @@ Suggests: knitr, rmarkdown
 Encoding: UTF-8
 RoxygenNote: 6.0.1.9000
 NeedsCompilation: no
-Packaged: 2017-11-05 20:40:48 UTC; nanx
-Author: Nan Xiao [aut, cre],
+Packaged: 2018-04-23 05:11:50 UTC; nanx
+Author: Nan Xiao [aut, cre] (<https://orcid.org/0000-0002-0250-5673>),
   Gao Wang [aut],
   Lei Sun [aut]
 Repository: CRAN
-Date/Publication: 2017-11-05 20:54:26 UTC
+Date/Publication: 2018-04-23 10:35:07 UTC

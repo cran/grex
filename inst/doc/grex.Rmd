@@ -42,8 +42,8 @@ To facilitate such ID conversion tasks, the `grex` package has a built-in
 mapping table derived from the well-known annotation data package
 `org.Hs.eg.db` [@hsdb]. The mapping data we used has integrated mapping
 information from Ensembl and NCBI, to maximize the possibility of finding
-a matched Entrez ID. The R code for creating the table is located 
-[here](https://github.com/road2stat/grex/blob/master/data-raw/data-generator.R).
+a matched Entrez ID. The R script for creating the mapping table is located 
+[here](https://github.com/road2stat/grex/blob/master/data-raw/mapping-table-generator.R).
 
 Not surprisingly, when creating such a table, there were hundreds of cases
 where a single Ensembl ID can be mapped to multiple Entrez gene IDs.
@@ -56,7 +56,7 @@ got a correct mapped ID.
 
 # Code Example
 
-As an example, we use the Ensembl IDs from GTEx V6p gene count data
+As an example, we use the Ensembl IDs from GTEx V7 gene count data
 and select 100 IDs:
 
 ```{r,echo=FALSE}
@@ -65,8 +65,8 @@ options(width = 90)
 
 ```{r}
 library("grex")
-data("gtexv6p")
-id = gtexv6p[101:200]
+data("gtexv7")
+id = gtexv7[101:200]
 df = grex(id)
 tail(df)
 ```
@@ -76,8 +76,9 @@ The elements which cannot be mapped accurately will be `NA`.
 Genes with a mapped Entrez ID:
 
 ```{r}
-filtered_genes = df[!is.na(df$"entrez_id"),
-                    c("ensembl_id", "entrez_id", "hgnc_symbol", "gene_biotype")]
+filtered_genes =
+  df[!is.na(df$"entrez_id"),
+     c("ensembl_id", "entrez_id", "hgnc_symbol", "gene_biotype")]
 head(filtered_genes)
 ```
 
@@ -95,7 +96,7 @@ single Entrez ID. Post-processing steps may also be needed for such genes.
 
 # Acknowledgements
 
-We thank the members of the [Stephens lab](http://stephenslab.uchicago.edu)
+We thank members of the [Stephens lab](http://stephenslab.uchicago.edu)
 (Kushal K Dey, Michael Turchin) for their valuable suggestions
 and helpful discussions on this problem.
 
